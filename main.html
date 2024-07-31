@@ -1,16 +1,60 @@
 <!DOCTYPE html>
-
 <html>
+    <head>
+        <title>Color Grid</title>
+		<style>
+			#grid-container{
+	display:grid;
+	grid-template-columns: auto auto auto;
+	gap:10px;
+}
 
-<head>
-	<link rel="stylesheet" href="styles.css">
-</head>
+#grid-container div {
+    border: 1px solid black;
+    padding: 20px;
+    text-align: center;
+}
+		</style>
+    </head>
+    <body>
+        <div id="grid-container">
+            <div id="grid-item-1">1</div>
+            <div id="grid-item-2">2</div>
+			<div id="grid-item-3">3</div>
+			<div id="grid-item-4">4</div>
+			<div id="grid-item-5">5</div>
+			<div id="grid-item-6">6</div>
+			<div id="grid-item-7">7</div>
+			<div id="grid-item-8">8</div>
+			<div id="grid-item-9">9</div>
+        </div>
 
-<body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+        <input type="text" id="block_id" placeholder="Block ID">
+        <input type="text" id="colour_id" placeholder="Color">
 
-</body>
+        <button id="change_button">Change Color</button>
+        <button id="reset_button">Reset</button>
 
+		<script>
+			//your JS code here. If required.
+let changeColor = document.getElementById('change_button')
+let reset = document.getElementById('reset_button')
+
+changeColor.addEventListener('click',function(){
+	let blockId = document.getElementById('block_id').value;
+	let color = document.getElementById('colour_id').value;
+
+	document.getElementById('grid-item-' + blockId).style.backgroundColor = color;
+
+
+});
+
+
+reset.addEventListener('click', function() {
+	for(let i = 1; i <= 9; i++){
+		document.getElementById('grid-item-' + i).style.backgroundColor = 'transparent';
+	}
+})
+		</script>
+    </body>
 </html>
